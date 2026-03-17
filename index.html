@@ -516,13 +516,15 @@
 
         <div id="layer-ctrl">
             <div class="lsect">Mappa base</div>
-            <button class="lbtn on" id="btn-light" onclick="setBase('light')"><span class="lico">☀️</span>Standard</button>
+            <button class="lbtn on" id="btn-light" onclick="setBase('light')"><span
+                    class="lico">☀️</span>Standard</button>
             <button class="lbtn" id="btn-osm" onclick="setBase('osm')"><span class="lico">🗺️</span>Trasporti</button>
-            <button class="lbtn" id="btn-osm1" onclick="setBase('osm1')"><span class="lico">🏔️</span>Classica 1</button>
+            <button class="lbtn" id="btn-osm1" onclick="setBase('osm1')"><span class="lico">🏔️</span>Classica
+                1</button>
             <button class="lbtn" id="btn-osm" onclick="setBase('topo')"><span class="lico">🏔️</span>Classica 2</button>
 
 
-          
+
 
         </div>
     </div>
@@ -539,11 +541,11 @@
             osm: L.tileLayer('https://tile.thunderforest.com/transport/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors', maxZoom: 19
             }),
-            
+
             osm1: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors', maxZoom: 19
             }),
-            
+
             topo: L.tileLayer('https://maps.geoapify.com/v1/tile/osm-bright-smooth/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors, © OpenTopoMap', maxZoom: 19
             })
@@ -595,13 +597,13 @@
 
         // ── MARKER ICON ───────────────────────────────────────────────────────────────
         function mkIcon(col) {
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 20 26">
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 20 26">
     <circle cx="10" cy="10" r="9" fill="${col}" stroke="rgba(0,0,0,0.5)" stroke-width="1.5"/>
     <circle cx="10" cy="10" r="3.5" fill="rgba(0,0,0,0.45)"/>
     <line x1="10" y1="19" x2="10" y2="26" stroke="${col}" stroke-width="2.5"/>
   </svg>`;
-  return L.divIcon({ html: svg, className: '', iconSize: [28,36], iconAnchor: [14,36], popupAnchor: [0,-36] });
-}
+            return L.divIcon({ html: svg, className: '', iconSize: [28, 36], iconAnchor: [14, 36], popupAnchor: [0, -36] });
+        }
 
         // ── FILTERING ─────────────────────────────────────────────────────────────────
         function getFiltered() {
@@ -3394,7 +3396,7 @@
                 "codice_scuola": "RMAA86500E",
                 "scuola": "NANDO MARTELLINI",
                 "indirizzo": "VIA VANNI 5 - ROMA",
-                "latitudine": "41.88280", 
+                "latitudine": "41.88280",
                 "longitudine": "12.3595280"
             },
             {
@@ -4967,10 +4969,73 @@
                 "distretto": 31,
                 "comune": "MORLUPO",
                 "codice_scuola": "RMAA88600G",
-                "scuola": "GIOVANNI FALCONE E PAOLO BORS|VIA G.B. DE MATTIA 1 - MORLUPO|ASSOCIATA A RMIC88600Q|42.14769181|12.51154648\r\n031|RMAAF734T2|MORLUPO|RMAA88602N|MORLUPO C.U.|VIA DOMENICO BENEDETTI - MORLUPO|ASSOCIATA A RMIC88600Q|42.1468162|12.5056324\r\n031|RMAAF857T4|NAZZANO|RMAA870046|NAZZANO - GIUSEPPE MAZZINI|VIA SANT'ANTIMO 19 - NAZZANO|ASSOCIATA A RMIC870006|42.2304657|12.59608739\r\n031|RMAAG874V7|PONZANO ROMANO|RMAA870057|PONZANO ROMANO - CARLO STORANI|VIA GABRIELE D'ANNUNZIO, 2 - PONZANO ROMANO|ASSOCIATA A RMIC870006|40.88450899|14.1474946\r\n031|RMAAH267W0|RIANO|RMAA876001|GIACOMO MATTEOTTI|VIA GIOVANNI XXIII, 2 - LOC MONTECHIARA|ASSOCIATA A RMIC876005|42.0895|12.522774\r\n031|RMAAH267W0|RIANO|RMAA876012|RIANO C.U.|VIA P.GIORGIO DA RIANO|ASSOCIATA A RMIC876005|42.09169649|12.51800357\r\n031|RMAAH267W0|RIANO|RMAA876023|RIANO-COSTARONI BELVEDERE|COSTARONI BELVEDERE|ASSOCIATA A RMIC876005|42.08538028|12.54822575\r\n031|RMAAH288W0|RIGNANO FLAMINIO|RMAA87700R|ISTITUTO COMPRENSIVO O.ROVERE\"",
+                "scuola": "GIOVANNI FALCONE E PAOLO BORS",
+                "indirizzo": "VIA G.B. DE MATTIA 1 - MORLUPO",
+                "latitudine": "42.14769181",
+                "longitudine": "12.51154648"
+            },
+            {
+                "distretto": 31,
+                "comune": "MORLUPO",
+                "codice_scuola": "RMAA88602N",
+                "scuola": "MORLUPO C.U.",
+                "indirizzo": "VIA DOMENICO BENEDETTI - MORLUPO",
+                "latitudine": "42.1468162",
+                "longitudine": "12.5056324"
+            },
+            {
+                "distretto": 31,
+                "comune": "NAZZANO",
+                "codice_scuola": "RMAA870046",
+                "scuola": "NAZZANO - GIUSEPPE MAZZINI",
+                "indirizzo": "VIA SANT'ANTIMO 19 - NAZZANO",
+                "latitudine": "42.2304657",
+                "longitudine": "12.59608739"
+            },
+            {
+                "distretto": 31,
+                "comune": "PONZANO ROMANO",
+                "codice_scuola": "RMAA870057",
+                "scuola": "PONZANO ROMANO - CARLO STORANI",
+                "indirizzo": "VIA GABRIELE D'ANNUNZIO, 2 - PONZANO ROMANO",
+                "latitudine": "42.25775",
+                "longitudine": "12.572057" 
+            },
+            {
+                "distretto": 31,
+                "comune": "RIANO",
+                "codice_scuola": "RMAA876001",
+                "scuola": "GIACOMO MATTEOTTI",
+                "indirizzo": "VIA GIOVANNI XXIII, 2 - LOC MONTECHIARA",
+                "latitudine": "42.0895",
+                "longitudine": "12.522774"
+            },
+            {
+                "distretto": 31,
+                "comune": "RIANO",
+                "codice_scuola": "RMAA876012",
+                "scuola": "RIANO C.U.",
+                "indirizzo": "VIA P.GIORGIO DA RIANO",
+                "latitudine": "42.09169649",
+                "longitudine": "12.51800357"
+            },
+            {
+                "distretto": 31,
+                "comune": "RIANO",
+                "codice_scuola": "RMAA876023",
+                "scuola": "RIANO-COSTARONI BELVEDERE",
+                "indirizzo": "COSTARONI BELVEDERE",
+                "latitudine": "42.08538028",
+                "longitudine": "12.54822575"
+            },
+            {
+                "distretto": 31,
+                "comune": "RIGNANO FLAMINIO",
+                "codice_scuola": "RMAA87700R",
+                "scuola": "ISTITUTO COMPRENSIVO O.ROVERE",
                 "indirizzo": "VIA SAN ROCCO, 66 - RIGNANO FLAMINIO",
                 "latitudine": "42.2086844",
-                "longitudine": "12.479759"
+                "longitudine": "12.47975"
             },
             {
                 "distretto": 31,
@@ -6464,7 +6529,7 @@
                 "scuola": "ARTENA- PONTE DEL COLLE",
                 "indirizzo": "C.DA PONTE DEL COLLE - LOC. PONTE DEL COLLE",
                 "latitudine": "41.9106",
-                "longitudine": "13.02549" 
+                "longitudine": "13.02549"
             },
             {
                 "distretto": 38,
