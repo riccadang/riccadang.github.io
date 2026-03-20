@@ -222,6 +222,14 @@
             color: #fff;
         }
 
+        .roma{
+            margin-top: 5px;
+            font-size: 11px;
+            width: 100%;
+            text-align: center;
+            padding: 5px 7px;
+        }
+
         #clf {
             margin-top: 7px;
             width: 100%;
@@ -525,6 +533,7 @@
         <div id="fsec">
             <h3>Filtra per Distretto</h3>
             <div id="fgrid"></div>
+            <button class="db roma" id="btn-roma" onclick="selectRoma()">Comune di Roma</button>
             <button id="clf">✕ Tutti i distretti</button>
         </div>
 
@@ -907,6 +916,26 @@
         window.togDist = function (d) {
             actDist.has(d) ? actDist.delete(d) : actDist.add(d);
             document.querySelectorAll('.db').forEach(b => b.classList.toggle('on', actDist.has(b.dataset.d)));
+            document.getElementById('btn-roma').classList.toggle('on',
+                ROMA_DISTS.every(d => actDist.has(d)) && ROMA_DISTS.length > 0);
+            renderList(); renderMarkers(); renderPolygons();
+            if (actDist.size > 0) {
+                const pts = getFiltered();
+                if (pts.length) map.fitBounds(L.latLngBounds(pts.map(s => [s.latitudine, s.longitudine])), { padding: [50, 50] });
+            }
+        };
+
+        const ROMA_DISTS = ['9','10','11','12','13','14','15','16','17','18','19','20','21','23','24','25','26','27','28'];
+
+        window.selectRoma = function () {
+            const allOn = ROMA_DISTS.every(d => actDist.has(d));
+            if (allOn) {
+                ROMA_DISTS.forEach(d => actDist.delete(d));
+            } else {
+                ROMA_DISTS.forEach(d => actDist.add(d));
+            }
+            document.querySelectorAll('.db').forEach(b => b.classList.toggle('on', actDist.has(b.dataset.d)));
+            document.getElementById('btn-roma').classList.toggle('on', !allOn);
             renderList(); renderMarkers(); renderPolygons();
             if (actDist.size > 0) {
                 const pts = getFiltered();
@@ -917,6 +946,7 @@
         document.getElementById('clf').onclick = () => {
             actDist.clear();
             document.querySelectorAll('.db').forEach(b => b.classList.remove('on'));
+            document.getElementById('btn-roma').classList.remove('on');
             renderList(); renderMarkers(); renderPolygons();
             fitAll();
         };
@@ -8175,7 +8205,7 @@
             schools = data.map((s, i) => ({ ...s, _id: i }));
 
             // Build district color map
-            const dists = [...new Set(schools.map(s => s.distretto))].sort();
+            const dists = [...new Set(schools.map(s => s.distretto))].sort((a, b) => a - b);
             dists.forEach((d, i) => { DC[d] = PAL[i % PAL.length]; });
 
             // District filter buttons
